@@ -1,0 +1,10 @@
+SQL Query to get the photoIDs visible to 'TestUser'
+- Photos owned by TestUser 
+- Photos that are shared by another user where TestUser is a follower of and allfollowers = True
+- Photos that are shared to groups that TestUser is part of 
+
+SELECT photoID FROM photo AS p WHERE photoPoster = 'TestUser' OR photoID IN
+(SELECT photoID FROM Photo WHERE photoPoster != %s AND allFollowers = 1 AND photoPoster IN
+(SELECT username_followed FROM follow WHERE username_follower = 'TestUser' 
+AND username_followed = photoPoster AND followstatus = 1)) OR photoID IN 
+(SELECT photoID FROM share NATURAL JOIN belongto NATURAL JOIN photo WHERE username = %s AND photoPoster != 'TestUser') ORDER BY postingdate DESC
