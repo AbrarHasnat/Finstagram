@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Images</title>
+</head>
+<body>
+	{% if posts %}
+         {% for post in posts %}
+         <div>
+            <p>Posted By <b>{{post.firstName}} {{post.lastName}} - {{post.photoPoster}}</b></p>
+            <p>Photo ID: {{post.photoID}}</p>
+            <p>Posted On {{post.postingdate}}</p>
+            <img src="static/images/{{post.filepath}}"> <br>
+            <p> {{post.caption}} </p>
+            <button onclick="location.href='{{ url_for('tag', id=post.photoID)}}'" type="button">Tag User</button>
+            <br>
+            <p>Tagged Users:
+            {% if post.tagees %}
+              {% for tagged in post.tagees %}
+                {% if loop.last %}
+                <p>{{tagged.firstName}} {{tagged.lastName}} ({{tagged.username}})</p>
+                {% else %}
+                <p>{{tagged.fname}} {{tagged.lname}} (tagged.username),</p>
+                {% endif %}
+              {% endfor %}
+            {% else %}
+             <p> None</p>
+            {% endif %}
+            <p>==========================================</p>	
+            </p>
+        </div>
+        {% endfor %}
+        {% else %}
+            <p>No photos to display</p>
+    {% endif %}
+    <a href="/">Go back</a>
+ 
+</body>
+</html>
