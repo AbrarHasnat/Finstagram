@@ -1,0 +1,25 @@
+body{
+    vertical-align: middle;
+}
+h1{
+    color:red;
+}
+#navBar ul {
+    list-style: none;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+#navBar ul a{
+    border: solid 1px black;
+    flex-grow: 5;
+    text-align: center;
+    }
+#navBar ul li{
+    background-color: pink;
+    color:black;
+}
+a {
+    text-decoration: none;
+}

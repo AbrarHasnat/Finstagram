@@ -1,20 +1,26 @@
 <html>
     <head>
         <title>Finstagram</title>
+        <link rel="stylesheet" href="../static/css/finstaSheet.css"/>
+        
     </head>
     <body>
-        <h1>Hello, {{ username }}!</h1> 
+        <center><h1>Hello, {{ username }}!</h1> </center>
         <!-- from variables in render-temp -->
-        <div>
+        <div id= "navBar">
+            
             <ul>
-                <li><a href="/images">View Images</a></li>
-                <li><a href="/upload">Upload an Image</a></li>
-                <li><a href="/follow">Follow another User</a></li>
-                <li><a href="/manageRequests">Manage Your Follow Requests</a></li>
-                <li><a href="/createFriendGroup">Create a Friend Group</a></li>
-                <li><a href="/logout">Logout</a></li>
+                
+                <li style="font-size:20px"><a href="/images">View Images</a></li>
+                <li style="font-size:20px"><a href="/upload">Upload an Image</a></li>
+                <li style="font-size:20px"><a href="/follow">Follow another User</a></li style="font-size:20px">
+                <li style="font-size:20px"><a href="/manageRequests">Manage Your Follow Requests</a></li>
+                <li style="font-size:20px"><a href="/createFriendGroup">Create a Friend Group</a></li>
+                <li style="font-size:20px"><a href="/logout">Logout</a></li>
+
 
             </ul>
+            
         </div>
     </body>
 </html>
