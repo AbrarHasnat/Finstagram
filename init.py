@@ -91,6 +91,11 @@ def images():
         ownerInfo = cursor.fetchone()
         post['firstName'] = ownerInfo['firstName']
         post['lastName'] = ownerInfo['lastName']
+        query = "SELECT username,rating FROM likes WHERE photoID = %s"
+        cursor.execute(query, (post['photoID']))
+        result = cursor.fetchall()
+        if (result):
+            post['likers'] = result
     print("ADs")
     print(data)
     cursor.close()

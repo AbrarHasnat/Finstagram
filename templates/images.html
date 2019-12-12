@@ -24,10 +24,22 @@
                 {% endif %}
               {% endfor %}
             {% else %}
-             <p> None</p>
             {% endif %}
-            <p>==========================================</p>	
             </p>
+            <p>Liked By:
+            {% if post.likers %}
+                {% for liker in post.likers %}
+                    {% if loop.last %}
+                    {{liker.username}} rating: {{liker.rating}}
+                    {% else %}
+                    {{liker.username}} rating: {{liker.rating}},
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+            None
+            {% endif %}
+            </p>
+
         </div>
         {% endfor %}
         {% else %}
